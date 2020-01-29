@@ -1,0 +1,104 @@
+void program(){
+
+    graph showonmap(int longtitude, int altitude){
+        :-> graph location;
+        return (location);
+    };
+
+    graph searchlocation(string adress){
+        :-> graph location;
+        return (location);
+    };
+    int getroadspeed(int road){
+        :-> int speed;
+        return (speed);
+    };
+    graph getlocation(string user){
+        :-> graph location;
+        return (location);
+    };
+    int getCurrentRoad(graph userLocation){
+        :-> int road;
+        return (road);
+    };
+    int showtargetlongtitude(graph location){
+        :-> int longtitude;
+        return (longtitude);
+    };
+    int showtargetaltitude(graph location){
+        :-> int altitude;
+        return (altitude);
+    };
+    int square(int a){
+        return (a*a);
+    };
+    int abs(int a){
+        if(a :< 0){
+            -1 * a :-> a; 
+        }
+        return (a);
+    };
+string display(string a){
+        if(:<>(typeof(a) :? ~string~)){
+            return(~Element has to be string to display!~);
+        };
+
+    };
+    string typeof(string a){
+        return (~string~);
+    };
+    string typeof(int a){
+        return (~int~);
+    };
+    string typeof(boolean a){
+        return (~boolean~);
+    };
+    string typeof(graph a){
+        return (~graph~);
+    };
+
+    :-> string destinationAdress;
+    :-> int destinationLongtitude;
+    :-> int destinationAltitude;
+    :-> graph destinationLocation;
+
+    :-> graph userLocation;
+    :-> boolean approached;
+    :-> string driverName;
+
+    :-> int vechileSpeed;
+    :-> int vechileLongtitude;
+    :-> int vechileAltitude;
+
+    :-> boolean driving;
+    :-> string display;
+    :-> int currentRoad;
+    :-> int currentSpeed;
+
+    approached :-> 0;
+
+    ~homestr.163~ :-> destinationAdress; 
+    searchlocation(destinationAdress) :-> destinationLocation;
+    showtargetlongtitude(destinationLocation):-> destinationLongtitude;
+    showtargetaltitude(destinationLocation):-> destinationAltitude;
+    showonmap(destinationLongtitude, destinationAltitude) :-> destinationLocation;
+    ~ahmet~ :-> driverName;
+    
+    while( driving :? true){
+
+        getlocation(driverName) :-> userLocation;
+        if( destinationLocation :? userLocation){
+            true :-> approached;
+            false:-> driving;
+            ~You have reached your destination!~ :-> display;
+        };
+
+        getCurrentSpeed(userLocation) :-> currentSpeed;
+        getCurrentRoad(userLocation) :-> currentRoad;
+        getroadspeed(currentRoad) :-> currentRoadSpeed;
+        
+        if(currentSpeed :> currentRoadSpeed){
+            ~Warning your speed is spiking!~ :-> display;
+        };   
+    };
+  
